@@ -4,20 +4,55 @@ Practice Problem #1
 
 Activity 1: Searching Strings
 Write a program to:
-Check if the text "JavaScript" is in the string "Learning JavaScript is fun!" using includes.
-Find the position of the word "fun" in the string.
+1. Check if the text "JavaScript" is in the string "Learning JavaScript is fun!" using includes.
+let text = "Learning JavaScript is fun!";
+
+let includesJavaScript = text.includes("JavaScript");
+console.log(includesJavaScript); // Output: true
+
+2. Find the position of the word "fun" in the string.
+let text = "Learning JavaScript is fun!";
+
+let positionOfFun = text.indexOf("fun");
+console.log(positionOfFun); // Output: 23
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Activity 2: Transforming Strings
-Convert the string " CODE BOOTCAMP " to lowercase and remove all extra whitespace.
-Replace "BOOTCAMP" with "JavaScript" in the transformed string.
+1. Convert the string " CODE BOOTCAMP " to lowercase and remove all extra whitespace.
+let inputString = " CODE BOOTCAMP ";
+
+let transformedString = inputString.trim().toLowerCase();
+console.log(transformedString); // "code bootcamp"
+
+2. Replace "BOOTCAMP" with "JavaScript" in the transformed string.
+let inputString = " CODE BOOTCAMP ";
+
+let transformedString = inputString.trim().toLowerCase();
+
+let replacedString = transformedString.replace("bootcamp", "javascript");
+console.log(replacedString); // "code javascript"
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Activity 3: Breaking Apart a Sentence
-Split the sentence "Coding is fun and educational" into an array of words.
+1. Split the sentence "Coding is fun and educational" into an array of words.
+let sentence = "Coding is fun and educational";
 
+let wordsArray = sentence.split(" ");
+console.log(wordsArray); // [ 'Coding', 'is', 'fun', 'and', 'educational' ]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Activity 4: Retrieving Substrings
-Retrieve the first character of "Bootcamp" using charAt.
-Extract the word "camp" from "Bootcamp" using slice.
+1. Retrieve the first character of "Bootcamp" using charAt.
+let word = "Bootcamp";
 
+let firstCharacter = word.charAt(0);
+console.log(firstCharacter); // B
+
+2. Extract the word "camp" from "Bootcamp" using slice.
+let word = "Bootcamp";
+
+let extractedSubstring = word.slice(4);
+console.log(extractedSubstring); // camp
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Advanced Challenge
 Write a program to process the following string:
 Customer: John Doe
@@ -27,7 +62,24 @@ Extract the customer name.
 Split the order into an array of items.
 Convert the total price to uppercase (e.g., "TOTAL: $20.50").
 
+let inputString = `Customer: John Doe
+Order: Apple, Banana, Grape
+Total: $20.50`;
 
+let customerLine = inputString.split("\n")[0];
+let customerName = customerLine.split(": ")[1];
+
+let orderLine = inputString.split("\n")[1];
+let orderItems = orderLine.split(": ")[1].split(", ");
+
+let totalLine = inputString.split("\n")[2];
+let totalPrice = totalLine.split(": ")[1];
+let totalUppercase = `TOTAL: ${totalPrice.toUpperCase()}`;
+
+console.log("Customer Name:", customerName);
+console.log("Order Items:", orderItems);
+console.log(totalUppercase);
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Practice Problem #2
 
 Objective
@@ -69,35 +121,44 @@ Complete the following tasks and assign the results to the specified variables. 
 let inputString = "  Welcome to the Coding Bootcamp! Learn JavaScript today.  ";
 
 // 1. Searching
-let hasJavaScript; // Your code here
-let codingPosition; // Your code here
-let startsWithWelcome; // Your code here
-let endsWithToday; // Your code here
+let hasJavaScript; // let hasJavaScript = inputString.includes("JavaScript");
+let codingPosition; // let codingPosition = inputString.indexOf("Coding");
+let startsWithWelcome; // let startsWithWelcome = inputString.startsWith("Welcome");
+let endsWithToday; // let endsWithToday = inputString.endsWith("today.");
 
 // 2. Transforming
-let lowercaseString; // Your code here
-let uppercaseString; // Your code here
-let trimmedString; // Your code here
-let replacedString; // Your code here
+let lowercaseString; // let lowercaseString = inputString.toLowerCase();
+let uppercaseString; // let uppercaseString = inputString.toUpperCase();
+let trimmedString; // let trimmedString = inputString.trim();
+let replacedString; // let replacedString = inputString.replace("JavaScript", "coding");
 
 // 3. Breaking Apart
-let wordsArray; // Your code here
+let wordsArray; // let wordsArray = inputString.trim().split(" ");
 
 // 4. Retrieving
-let firstCharacter; // Your code here
-let extractedBootcamp; // Your code here
+let firstCharacter; // let firstCharacter = trimmedString.charAt(0);
+let extractedBootcamp; // let extractedBootcamp = trimmedString.slice(22, 30);
 
 // Log all results
 console.log({
-  hasJavaScript,
-  codingPosition,
-  startsWithWelcome,
-  endsWithToday,
-  lowercaseString,
-  uppercaseString,
-  trimmedString,
-  replacedString,
-  wordsArray,
-  firstCharacter,
-  extractedBootcamp,
-});
+  hasJavaScript, // true
+  codingPosition, // 17
+  startsWithWelcome, //false
+  endsWithToday, // false
+  lowercaseString, //  welcome to the coding bootcamp! learn javascript today. 
+  uppercaseString, // WELCOME TO THE CODING BOOTCAMP! LEARN JAVASCRIPT TODAY. 
+  trimmedString, // Welcome to the Coding Bootcamp! Learn JavaScript today.
+  replacedString, // Welcome to the Coding Bootcamp! Learn coding today. 
+  wordsArray, // [
+  'Welcome',
+  'to',
+  'the',
+  'Coding',
+  'Bootcamp!',
+  'Learn',
+  'JavaScript',
+  'today.'
+]
+  firstCharacter, // w
+  extractedBootcamp, // Bootcamp
+  });
